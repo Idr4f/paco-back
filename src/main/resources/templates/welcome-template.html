@@ -1,0 +1,162 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns:th="http://www.thymeleaf.org" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css"/>
+    <link rel="preconnect" href="https://fonts.gstatic.com" />
+    <link href="https://fonts.googleapis.com/css2?family=Barlow" rel="stylesheet">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+    <style>
+      a{
+        color: #3DB5FF;
+      }
+      p, span, b {
+        color: #071842 !important;
+      }
+      body {
+        font-family: Arial, Helvetica, sans-serif;
+      }
+      .container {
+        background-color: #F8F9FE;
+      }
+      .caja {
+        width: 500px !important;
+      }
+      .nombre {
+        text-transform: capitalize;
+        font-size: 20px;
+      }
+      .centro {
+        margin: auto;
+        text-align: center !important;
+      }
+      .principal{
+        width:100%;
+      }
+      .col-sep {
+        width: 20px !important;
+      }
+      .banner {
+        width: 460px !important;
+        height: 130px;
+        background-color: #F2A7B5;
+        background-image: url(https://www.pa-co.co/wp-content/uploads/2021/10/ImageMail_Bienvenida.png);
+        background-position: center center;
+        background-repeat: no-repeat;
+        background-size: cover;
+      }
+      .flex {
+        display: flex;
+      }
+      .div-center {
+        width: 400px;
+        margin: 0 auto;
+      }
+      .pointer {
+        cursor: pointer !important;
+        text-decoration: none !important;
+      }
+      .row {
+        margin: 0 !important;
+      }
+    </style>
+</head>
+<body class="caja">
+  <div class="container caja">
+    <table width="100%" style="border: none;" class="caja">
+      <tr> <!--CLICK AQUI-->
+        <td class="col-sep"></td>
+        <td style="border-bottom: 1px solid #ccc;">
+          <div class="row">
+            <div class="col-md-12 centro" style="padding: 10px;">
+              <span style="display: none;">Si no puedes ver este mensaje <a href="">clic aquí</a></span>
+            </div>
+          </div>
+        </td>
+        <td class="col-sep"></td>
+      </tr>
+
+      <tr> <!--LOGO PAGO-->
+        <td class="col-sep"></td>
+        <td>
+          <div class="row" style="margin: 20px;">
+            <div class="col-md-12 centro">
+              <img
+                src="https://www.pa-co.co/wp-content/uploads/2021/04/Logo_Color-1.png"
+                alt="Logo Paco"
+                width="150"
+              />
+            </div>
+          </div>
+        </td>
+        <td class="col-sep"></td>
+      </tr>
+
+      <tr> <!--BANNER-->
+        <td class="col-sep"></td>
+        <td>
+          <div class="principal">
+      
+            <div class="row flex">
+              <div class="col-md-12 div-center">
+                <h1 class="nombre"><b>Hola, <span th:text="${name}">name</span> :D</b></h1>
+              </div>
+            </div>
+      
+            <div class="row banner">
+              <div class="col-md-12">
+                <table style="width: 100%; height: 130px;">
+                  <td style="width: 50%;"></td>
+                  <td style="width: 50%; font-size: 18px;">
+                    <i>
+                      <p style="color: #F8F9FE !important; font-weight: bold; margin: 0 !important;">¡Estamos súper felices</p>
+                      <p style="font-weight: bold; margin: 0 !important;">de verte por acá!</p>
+                    </i>
+                  </td>
+                </table>
+              </div>
+            </div>
+      
+            <div class="row flex">
+              <div class="col-md-12 div-center" style="margin-top: 30px; margin-bottom: 30px;">
+                <p>
+                  A continuación encontrarás la información de tu cuenta para que puedas iniciar sesión en nuestras plataformas:
+                </p>
+                <p>
+                  <b>
+                    Usuario: <span th:text="${username}">username</span>
+                    <br>
+                    Contraseña: <span th:text="${password}">password</span>
+                  </b>
+                </p>
+                <p>
+                  A través de este canal, te estaremos compartiendo información de valor acerca de copropiedades, su administración y contándote un poco más de nosotros.
+                </p>
+                <p>
+                  Con nosotros, en tu unidad podrán tener las herramientas para que la administración de copropiedades sea eficaz e innovadora.
+                </p>
+              </div>
+            </div>
+      
+            
+          </div>
+        </td>
+        <td class="col-sep"></td>
+      </tr>
+      <tr>
+        <td colspan="3">
+          <div class="row" style="background-color: #071842; margin-bottom: 50px; padding: 0 20px;">
+            <div class="col-md-12">
+              <p style="font-size: 14px; padding: 10px 30px; color: #F8F9FE !important;">
+                Al confirmar tu correo, estarás aceptando nuestra <a clss="pointer" href="https://www.pa-co.co/politica-de-privacidad-y-tratamiento-de-datos-personales-paco/" target="_blank"><i>política de tratamiento de datos.</i></a>
+              </p>
+            </div>
+          </div>
+        </td>
+      </tr>
+    </table>
+  </div>
+</body>
+</html>
