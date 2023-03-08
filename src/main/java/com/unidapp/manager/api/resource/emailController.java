@@ -69,5 +69,7 @@ public class emailController {
 			GeneralRest generalRest = new GeneralRest(e, "Error en el sistema", 500);
 			return new ResponseEntity<GeneralRest>(generalRest, HttpStatus.BAD_GATEWAY);
 		}
+
 	}
+
 }

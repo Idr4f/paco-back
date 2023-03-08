@@ -6,11 +6,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 
-import org.springframework.web.bind.annotation.CrossOrigin;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.SecurityContextHolder;
@@ -21,7 +17,6 @@ import org.springframework.security.crypto.password.PasswordEncoder;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.HashMap;
-import java.util.Random;
 
 import com.unidapp.manager.api.config.JwtTokenUtil;
 import com.unidapp.manager.api.model.Config;
@@ -102,7 +97,7 @@ public class JwtAuthenticationController {
 			}
 
 			GeneralRest generalRest = new GeneralRest(userTmp, message, code);
-			return new ResponseEntity<GeneralRest>(generalRest, HttpStatus.BAD_REQUEST);
+			return new ResponseEntity<GeneralRest>(generalRest, HttpStatus.METHOD_NOT_ALLOWED);
 		}
 
 		final User user = userRepository.findByUsername(authenticationRequest.getUsername());
@@ -135,7 +130,7 @@ public class JwtAuthenticationController {
 	@RequestMapping(value = "/authenticate/restorePassword", method = RequestMethod.POST)
 	public ResponseEntity<?> restorePassword(@RequestBody HashMap<String, String> map) throws Exception {
 		try {
-			User user = userRepository.findByUsername(map.get("username"));
+			User user = userRepository.findByUsername(map.get("email"));
 			if (user != null) {
 				Neighbor neighbor = neighborRepository.findByUserId(user.get_id());
 				if (neighbor != null) {
@@ -253,7 +248,13 @@ public class JwtAuthenticationController {
 	}
 	@RequestMapping(value = "/authenticate/serverStatus", method = RequestMethod.GET)
 	public ResponseEntity<?> serverStatus() {
+		//String user = String.valueOf(userRepository.findByUsername("sarabrand@gmail.com"));
+		//GeneralRest generalRest = new GeneralRest(user, 200);
+
 		GeneralRest generalRest = new GeneralRest("Server OK", 200);
 		return new ResponseEntity<GeneralRest>(generalRest, HttpStatus.OK);
 	}
+
+
+
 }
