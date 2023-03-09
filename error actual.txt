@@ -1,4 +1,0 @@
-el error actual es: que al bajar a JwtAuthenticationController.java line: 109, la aplicacion
-autodirige a un throw de un error que dice:
-- java.lang.ClassNotFoundException: javax.xml.bind.DatatypeConverter y en google decian que es una libreria de jackarta EE
-y que la version, pero aun con la java 8, 11, o 17, sigue sin funcionar.
