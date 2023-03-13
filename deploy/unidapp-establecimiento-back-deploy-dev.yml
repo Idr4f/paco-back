@@ -16,7 +16,7 @@ spec:
       - name: #{Image-Name}#
         image: #{Acr-Dev}#/#{Image-Name}#:#{Image-Version}#
         ports:
-        - containerPort: 80
+        - containerPort: 8085
         resources:
           requests:
             cpu: 100m
@@ -35,6 +35,6 @@ metadata:
 spec:
   type: LoadBalancer
   ports:
-  - port: 80
+  - port: 8085
   selector:
     app: #{Image-Name}#
